@@ -29,7 +29,7 @@ function handleSubmit(event) {
   // Do all the things ...
   addSelectedItemToCart(product, quantity);
   cart.saveToLocalStorage();
-  updateCounter();
+  updateCounter(product, quantity);
   updateCartPreview();
 
 }
@@ -41,16 +41,12 @@ function addSelectedItemToCart(product, quantity) {
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {
-  var cartTotal = document.getElementById('itemCount');
-  for( var i = 0; i < cart.items.length; i++){
-    console.log('loop');
-    cartNum.push(cart.items[i].quantity)
-  }
-  var total = cartNum.reduce(function (prev, current) {
-    return (prev.product > current.product) ? prev : current;});
-  cartTotal.textContent = total;
-  console.log('fdkafldjsjklf',cartNum);
+function updateCounter(product, quantity) {
+  cartNum.push(quantity);
+  console.log('test',cartNum);
+  // STOPPING HERE, WORKING ON THIS LATER
+  // var clickTotal = data.reduce(function (prev, current) {
+  //   return (prev.clicked > current.clicked) ? prev : current;});
 }
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
